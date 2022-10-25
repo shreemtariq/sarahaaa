@@ -1,9 +1,11 @@
 require('dotenv').config();
+var cors = require('cors')
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const port =process.env.PORT;
 app.use(express.json());
+app.use(cors())
 app.use('/users',require('./api/user.api'));
 app.use('/messages',require('./api/message.api'));
 app.get('/',(req,res)=>{
